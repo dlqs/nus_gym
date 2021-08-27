@@ -24,7 +24,9 @@ jobs:
       - uses: actions/checkout@v2
       
       - name: Install stuff
-        run: sudo apt install gnuplot
+        run: |
+          sudo apt update
+          sudo apt -y install gnuplot
 
       - name: Do stuff
         run: |
