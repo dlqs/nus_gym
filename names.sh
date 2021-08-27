@@ -1,4 +1,0 @@
-export GYM1=kent_ridge_fitness_gym
-export GYM2=university_town_fitness_gym
-export GYM3=university_sports_centre_gym
-export GYM4=wellness_outreach_gym
