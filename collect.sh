@@ -7,7 +7,8 @@ GYM4=wellness_outreach_gym
 
 for gym in $GYM1 $GYM2 $GYM3 $GYM4 ;
   do
-    printf "%s " `date +"%d/%m/%Y %H:%m"` >> "$gym".data 
+    printf "%s " `date +%s` >> "$gym".data
+    printf "%s " `date +"\"%d/%m/%Y %H:%m\""` >> "$gym".data 
   done
 
 curl -s https://reboks.nus.edu.sg/nus_public_web/public/index.php/facilities/capacity | sed -nE "s/^.*Kent Ridge - Fitness gym @MPSH3<\/span><b>([[:digit:]]+)\/20.*$/\1/p" >> "$GYM1".data
@@ -17,7 +18,7 @@ curl -s https://reboks.nus.edu.sg/nus_public_web/public/index.php/facilities/cap
 
 for gym in $GYM1 $GYM2 $GYM3 $GYM4 ;
   do
-    gnuplot -e "gymname=$gym.data; outputname=$gym.png" gym.p
+    gnuplot -e "gymname='$gym.data'; outputname='$gym.png'" gym.p
   done
 
 clean_collect() {

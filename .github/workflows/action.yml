@@ -30,10 +30,6 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           ./collect.sh
-          gnuplot -e "gymname='gym1.data'; outputname='gym1.png'" gym.p
-          gnuplot -e "gymname='gym2.data'; outputname='gym2.png'" gym.p
-          gnuplot -e "gymname='gym3.data'; outputname='gym3.png'" gym.p
-          gnuplot -e "gymname='gym4.data'; outputname='gym4.png'" gym.p
 
       - name: Push
         run: |

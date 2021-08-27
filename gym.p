@@ -1,7 +1,8 @@
 set terminal png
-set output 'gym.png'
-set title 'users'
+set output outputname
+set title gymname
 set grid
 set boxwidth 0.5
 set style fill solid
-plot "gym.data" using 1:3:xtic(2) with boxes
+set yrange [0: 40]
+plot gymname using 1:3:xtic(2) with boxes
