@@ -16,9 +16,12 @@ curl -s https://reboks.nus.edu.sg/nus_public_web/public/index.php/facilities/cap
 curl -s https://reboks.nus.edu.sg/nus_public_web/public/index.php/facilities/capacity | sed -nE "s/^.*University Sports Centre - Gym<\/span><b>([[:digit:]]+)\/20.*$/\1/p" >> "$GYM3".data
 curl -s https://reboks.nus.edu.sg/nus_public_web/public/index.php/facilities/capacity | sed -nE "s/^.*Wellness Outreach Gym<\/span><b>([[:digit:]]+)\/30.*$/\1/p" >> "$GYM4".data
 
+fromdate=`date --date '-1 days' +%s`
+todate=`date +%s`
+
 for gym in $GYM1 $GYM2 $GYM3 $GYM4 ;
   do
-    gnuplot -e "gymname='$gym.data'; outputname='$gym.png'" gym.p
+    gnuplot -e "gymname='$gym.data'; outputname='$gym.png'; fromdate=$fromdate; todate=$todate" gym.p
   done
 
 clean_collect() {
