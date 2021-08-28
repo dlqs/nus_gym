@@ -8,7 +8,7 @@ GYM4=wellness_outreach_gym
 for gym in $GYM1 $GYM2 $GYM3 $GYM4 ;
   do
     printf "%s " `date +%s` >> "$gym".data
-    printf "%s " `date +"\"%d/%m/%Y %H:%m\""` >> "$gym".data 
+    printf "%s " `date +"\"%d/%m/%Y %H:%M\""` >> "$gym".data 
   done
 
 curl -s https://reboks.nus.edu.sg/nus_public_web/public/index.php/facilities/capacity | sed -nE "s/^.*Kent Ridge - Fitness gym @MPSH3<\/span><b>([[:digit:]]+)\/20.*$/\1/p" >> "$GYM1".data
